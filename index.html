@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wii Store - Top Up All Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(-45deg, #8e44ad, #3498db, #e74c3c, #2ecc71);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <header class="text-center p-4">
+    <img src="wii-store-banner.jpg" alt="Wii Store Banner" class="rounded-xl mx-auto shadow-lg w-full max-w-lg" />
+    <h1 class="text-3xl font-bold mt-4">Wii Store - Top Up All Game</h1>
+    <p class="text-sm mt-1">@wiistore74 | WhatsApp: 0851-4761-3774</p>
+  </header>
+
+  <section class="p-4 bg-white bg-opacity-10 rounded-lg max-w-xl mx-auto mt-6">
+    <form id="topup-form" class="space-y-4">
+      <div>
+        <label class="block mb-1 font-semibold">ID Pemain</label>
+        <input id="player-id" type="text" class="w-full p-2 rounded text-black" placeholder="Masukkan ID Kamu" required />
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Pilih Game</label>
+        <select id="game" class="w-full p-2 rounded text-black" required>
+          <option value="">-- Pilih Game --</option>
+          <option>Mobile Legends</option>
+          <option>Free Fire</option>
+          <option>PUBG Mobile</option>
+          <option>Higgs Domino</option>
+          <option>Valorant</option>
+          <option>Genshin Impact</option>
+        </select>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Nominal</label>
+        <select id="nominal" class="w-full p-2 rounded text-black" required>
+          <option value="">-- Pilih Nominal --</option>
+          <option>10 Diamonds</option>
+          <option>50 Diamonds</option>
+          <option>100 Diamonds</option>
+          <option>300 Diamonds</option>
+          <option>500 Diamonds</option>
+        </select>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Metode Pembayaran</label>
+        <select id="payment" class="w-full p-2 rounded text-black" required>
+          <option value="">-- Pilih Pembayaran --</option>
+          <option>GoPay</option>
+          <option>DANA</option>
+          <option>OVO</option>
+          <option>Bank Transfer</option>
+          <option>Pulsa</option>
+        </select>
+      </div>
+      <button type="submit" class="w-full py-2 bg-purple-600 rounded hover:bg-purple-700 font-bold text-white">
+        Kirim via WhatsApp
+      </button>
+    </form>
+  </section>
+
+  <footer class="text-center text-sm mt-6 mb-4">
+    &copy; 2025 Wii Store. Selalu gunakan jasa admin resmi.
+  </footer>
+
+  <script>
+    document.getElementById("topup-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const playerId = document.getElementById("player-id").value;
+      const game = document.getElementById("game").value;
+      const nominal = document.getElementById("nominal").value;
+      const payment = document.getElementById("payment").value;
+
+      const message = `Halo Admin, saya ingin top up:%0A%0AGame: ${game}%0AID: ${playerId}%0ANominal: ${nominal}%0APembayaran: ${payment}%0A%0ATerima kasih!`;
+      const phone = "6285147613774";
+      const url = `https://wa.me/${phone}?text=${message}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
